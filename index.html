@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Corona Info</title>
+    <title>Corona-Info</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
     <link rel="shortcut icon" href="img/corona.jpeg" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap"
@@ -15,63 +21,97 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="app.js"></script>
   </head>
 
   <body>
-    <div class="header">
-      <img style="display: inline;" src="img/usa.png" alt="usa" />
-      <h1 class="title" style="display: inline;">CORONA-INFO</h1>
-      <img style="display: inline;" src="img/india.png" alt="india" />
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-2" style="text-align: center;">
+        <img src="img/usa.png" alt="usa" />
+      </div>
+      <div class="col-sm-4" style="text-align: center;">
+        <h1 class="title" style="margin-top: 30px;">CORONA-INFO</h1>
+      </div>
+      <div class="col-sm-2" style="text-align: center;">
+        <img src="img/india.png" alt="india" />
+      </div>
+      <div class="col-sm-2"></div>
     </div>
-
-    <h2 class="subtitle">THE INDO-AMERICAN STATISTICS ABOUT COVID-19</h2>
-    <div class="stats">
-      <div id="first" class="data-container">
-        <div class="stats-container">
-          <h4>Cases</h4>
-          <h1 id="cases"></h1>
-          <h4>Deaths</h4>
-          <h1 id="deaths"></h1>
-          <h4>% of Deaths</h4>
-          <h1 id="percent"></h1>
+    <div class="container">
+      <h3 style="text-align: center; margin: 20px 40px;" class="subtitle">
+        THE INDO-AMERICAN STATISTICS ABOUT COVID-19
+      </h3>
+      <div class="card-deck">
+        <div id="first" class="card">
+          <div class="card-body text-center">
+            <div class="row">
+              <h4 class="card-text col-sm-6">Country</h4>
+              <h5 id="country" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">Cases</h4>
+              <h5 id="cases" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">Deaths</h4>
+              <h5 id="deaths" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">% of Deaths</h4>
+              <h5 id="percent" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">Population</h4>
+              <h5 id="population" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">Last Updated</h4>
+              <h5 id="update" class="card-text col-sm-6"></h5>
+            </div>
+          </div>
         </div>
-        <div class="location-container">
-          <h4>Country</h4>
-          <h1 id="country"></h1>
-          <h4>Population</h4>
-          <h1 id="population"></h1>
-          <h4>Last Updated</h4>
-          <h1 id="update"></h1>
+        <div id="second" class="card">
+          <div class="card-body text-center">
+            <div class="row">
+              <h4 class="card-text col-sm-6">Country</h4>
+              <h5 id="icountry" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">Cases</h4>
+              <h5 id="icases" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">Deaths</h4>
+              <h5 id="ideaths" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">% of Deaths</h4>
+              <h5 id="ipercent" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">Population</h4>
+              <h5 id="ipopulation" class="card-text col-sm-6"></h5>
+            </div>
+            <div class="row">
+              <h4 class="card-text col-sm-6">Last Updated</h4>
+              <h5 id="iupdate" class="card-text col-sm-6"></h5>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div id="second" class="data-container">
-        <div class="stats-container">
-          <h4>Cases</h4>
-          <h1 id="icases"></h1>
-          <h4>Deaths</h4>
-          <h1 id="ideaths"></h1>
-          <h4>% of Deaths</h4>
-          <h1 id="ipercent"></h1>
-        </div>
-        <div class="location-container">
-          <h4>Country</h4>
-          <h1 id="icountry"></h1>
-          <h4>Population</h4>
-          <h1 id="ipopulation"></h1>
-          <h4>Last Updated</h4>
-          <h1 id="iupdate"></h1>
-        </div>
-      </div>
+      <h1 class="footer">
+        By
+        <a href="https://github.com/slidracoon72" target="_blank"
+          >Rahul Trivedi</a
+        >
+        | Information provided by
+        <a href="https://systems.jhu.edu/research/public-health/ncov/"
+          >Johns Hopkins University</a
+        >
+      </h1>
     </div>
-
-    <h1 class="footer">
-      Created by Rahul Trivedi | Information provided by
-      <a href="https://systems.jhu.edu/research/public-health/ncov/"
-        >Johns Hopkins University</a
-      >
-    </h1>
   </body>
 </html>
